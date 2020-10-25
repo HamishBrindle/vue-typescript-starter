@@ -1,20 +1,8 @@
-import { AuthService } from '@/services/AuthService';
+// import { AuthService } from '@/services/AuthService';
 import Login from '@/views/Dashboard/Auth/Login.vue';
 import Dashboard from '@/views/Dashboard/Dashboard.vue';
 import DashboardHome from '@/views/Dashboard/DashboardHome.vue';
 import { RouteConfig } from 'vue-router';
-
-const authService = AuthService.getInstance();
-
-/**
- * Helper to check user access against app abilities
- *
- * @param action
- * @param subject
- */
-function can(action: any, entity: any): boolean {
-  return authService.getAbility().can(action, entity);
-}
 
 const config: Array<RouteConfig> = [{
   path: '/dashboard',
@@ -28,13 +16,8 @@ const config: Array<RouteConfig> = [{
       path: 'home',
       name: 'home',
       component: DashboardHome,
-      beforeEnter: (to, from, next) => {
-        if (can('read', 'Report')) {
-          return next();
-        }
-        return next({ name: 'orders-list' });
-      },
       meta: {
+        layout: 'dashboard',
         requiresAuth: true,
       },
     },
@@ -43,6 +26,7 @@ const config: Array<RouteConfig> = [{
       name: 'settings',
       component: () => import(/* webpackChunkName: "Settings" */ '@/views/Dashboard/Settings.vue'),
       meta: {
+        layout: 'dashboard',
         requiresAuth: true,
       },
     },

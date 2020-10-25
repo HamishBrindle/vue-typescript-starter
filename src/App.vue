@@ -26,14 +26,14 @@ import { Get, Sync } from 'vuex-pathify';
 import constants from '@/constants.json';
 import DashboardLayout from '@/layouts/DashboardLayout.vue';
 import FullScreenLayout from '@/layouts/FullScreenLayout.vue';
-import StorefrontLayout from '@/layouts/StorefrontLayout.vue';
+import LandingPageLayout from '@/layouts/LandingPageLayout.vue';
 
 @Component({
   name: 'App',
   components: {
     DashboardLayout,
     FullScreenLayout,
-    StorefrontLayout,
+    LandingPageLayout,
   },
 })
 export default class App extends Vue {
@@ -58,7 +58,7 @@ export default class App extends Vue {
   }
 
   get layout() {
-    const which = this.$route.meta.layout || 'main';
+    const which = this.$route.meta.layout || 'landing-page';
     return `${which}-layout`;
   }
 

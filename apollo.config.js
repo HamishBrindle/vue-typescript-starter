@@ -4,9 +4,9 @@ module.exports = {
   client: {
     service: {
       name: 'shopify',
-      url: process.env.SHOPIFY_STOREFRONT_GRAPHQL_ENDPOINT,
+      url: process.env.GRAPHQL_ENDPOINT,
       headers: {
-        'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
+        'X-Shopify-Storefront-Access-Token': process.env.ACCESS_TOKEN,
       },
     },
     includes: [

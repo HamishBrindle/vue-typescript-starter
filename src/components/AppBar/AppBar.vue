@@ -9,13 +9,13 @@
     <v-app-bar-nav-icon @click.stop="onToggleDrawer(!drawer)" />
     <v-toolbar-title>
       <router-link
-        v-slot="{ navigate }"
+        v-slot="{ /* navigate */ }"
         :to="{ name: 'home' }"
       >
-        <app-logo
+        <!-- <app-logo
           class="logo"
           @click="navigate"
-        />
+        /> -->
       </router-link>
     </v-toolbar-title>
     <user-icon />
@@ -28,15 +28,11 @@ import { UserService } from '@/services/UserService';
 import {
   Vue, Component, Watch, Prop, Ref,
 } from 'vue-property-decorator';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore - TODO: Write proper declaration file for SVG
-import ApplicationLogo from '@/assets/images/svg/app_logo_flat.svg?inline';
 import UserIcon from './User/UserIcon.vue';
 
 @Component({
   name: 'AppBar',
   components: {
-    'app-logo': ApplicationLogo,
     UserIcon,
   },
 })

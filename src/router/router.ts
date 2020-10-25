@@ -13,16 +13,6 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     component: Home,
-    meta: {
-      layout: 'storefront',
-    },
-  },
-  {
-    path: '/welcome',
-    component: () => import(/* webpackChunkName: "Welcome" */ '@/views/Welcome/Welcome.vue'),
-    meta: {
-      layout: 'storefront',
-    },
   },
   ...dashboard,
   ...misc,

@@ -2,7 +2,7 @@ import '@/registerServiceWorker';
 import 'reflect-metadata';
 import { AuthService } from '@/services/AuthService';
 import AppComponent from '@/App.vue';
-import ErrorComponent from '@/views/Error.vue';
+import ErrorComponent from '@/views/Misc/Error.vue';
 import CustomVuex from '@/store';
 import router from '@/router';
 import Vue, { Component } from 'vue';
